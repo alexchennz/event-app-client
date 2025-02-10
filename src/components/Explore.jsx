@@ -8,7 +8,7 @@ const Explore = ({ onEventSelect }) => {
   // const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/events')
+    fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events`)
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);

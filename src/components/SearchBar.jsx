@@ -30,7 +30,7 @@ const SearchBar = ({ onEventSelect }) => {
 
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/api/events?search=${searchQuery}`);
+        const response = await fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events?search=${searchQuery}`);
         const data = await response.json();
         setSearchResults(data);
       } catch (error) {

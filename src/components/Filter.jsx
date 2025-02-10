@@ -21,7 +21,7 @@ const Filter = ({ isOpen, onClose }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/events');
+        const response = await fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events`);
         const data = await response.json();
         setEvents(data);
       } catch (error) {
@@ -40,7 +40,7 @@ const Filter = ({ isOpen, onClose }) => {
         if (selectedFilters.location) params.append('location', selectedFilters.location);
         if (selectedFilters.category) params.append('category', selectedFilters.category);
 
-        const response = await fetch(`http://localhost:5000/api/events?${params}`);
+        const response = await fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events?${params}`);
         const data = await response.json();
         setEvents(data);
       } catch (error) {

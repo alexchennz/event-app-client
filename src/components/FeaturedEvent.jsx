@@ -6,7 +6,7 @@ const FeaturedEvent = ({ event }) => {
     <div className="relative rounded-xl overflow-hidden h-48 mb-6 cursor-pointer">
       <div className="relative w-full h-full">
         <img
-          src={`http://localhost:5000${event.image}`}
+          src={`${import.meta.env.VITE_EVENT_APP_SERVER_URL}${event.image}`}
           alt={event.title}
           className="w-full h-full object-cover"
         />

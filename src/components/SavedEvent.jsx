@@ -18,7 +18,7 @@ const SavedEvent = ({ onEventSelect }) => {
         }
 
         // Fetch full event details for saved events
-        const response = await fetch(`http://localhost:5000/api/events?ids=${savedEventIds.join(',')}`);
+        const response = await fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events?ids=${savedEventIds.join(',')}`);
         const data = await response.json();
         setSavedEvents(data);
         setLoading(false);

@@ -9,7 +9,7 @@ const SearchResultEvent = ({ event, onClick }) => {
       {/* Image Container */}
       <div className="relative w-full h-48">
         <img 
-          src={`http://localhost:5000${event.image}`} 
+          src={`${import.meta.env.VITE_EVENT_APP_SERVER_URL}${event.image}`} 
           alt={event.title}
           className="w-full h-full object-cover rounded-t-lg"
         />

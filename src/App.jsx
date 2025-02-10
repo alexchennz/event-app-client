@@ -13,12 +13,13 @@ function App() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [currentView, setCurrentView] = useState('home');
 
+  console.log(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events?featured=true`);
   useEffect(() => {
     // Only fetch events if we're on the home view
     if (currentView === 'home') {
       Promise.all([
-        fetch('http://localhost:5000/api/events?featured=true'),
-        fetch('http://localhost:5000/api/events?featured=false&limit=5')
+        fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events?featured=true`),
+        fetch(`${import.meta.env.VITE_EVENT_APP_SERVER_URL}/api/events?featured=false&limit=5`)
       ])
         .then(([featuredRes, eventsRes]) => Promise.all([featuredRes.json(), eventsRes.json()]))
         .then(([featuredData, eventsData]) => {

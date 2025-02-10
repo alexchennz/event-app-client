@@ -77,7 +77,7 @@ const EventDetail = ({ event, onBack }) => {
           </button>
         </div>
         <img 
-          src={`http://localhost:5000${event.image}`}
+          src={`${import.meta.env.VITE_EVENT_APP_SERVER_URL}${event.image}`}
           alt={event.title}
           className="w-full h-full object-cover"
         />
