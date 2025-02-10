@@ -207,7 +207,7 @@ const Filter = ({ isOpen, onClose }) => {
           </button>
           {openSection.category && (
             <div className="grid grid-cols-2 gap-3">
-              {['Music', 'Sports', 'Arts', 'Food & Drink'].map(category => (
+              {['Music', 'Sports', 'Arts', 'Food & Drink', 'Comedy', 'Theatre'].map(category => (
                 <button
                   key={category}
                   onClick={() => handleFilterSelect('category', category)}
