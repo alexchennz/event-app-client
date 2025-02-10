@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FilterResult from './FilterResult';
 
 const Filter = ({ isOpen, onClose }) => {
   const [openSection, setOpenSection] = useState({
@@ -14,7 +15,8 @@ const Filter = ({ isOpen, onClose }) => {
   });
 
   const [events, setEvents] = useState([]);
-
+  const [showFilterResults, setShowFilterResults] = useState(false);
+  const [filteredEvents, setFilteredEvents] = useState([]);
   // Fetch all events initially
   useEffect(() => {
     const fetchEvents = async () => {
@@ -51,6 +53,18 @@ const Filter = ({ isOpen, onClose }) => {
     }
   }, [selectedFilters]);
 
+  if (showFilterResults) {
+    return (
+      <FilterResult 
+        events={filteredEvents}
+        onBack={() => {
+          setShowFilterResults(false);
+          setFilteredEvents([]);
+        }}
+      />
+    );
+  }
+
   if (!isOpen) return null;
 
   const toggleSection = (section) => {
@@ -65,6 +79,13 @@ const Filter = ({ isOpen, onClose }) => {
       ...prev,
       [type]: prev[type] === value ? '' : value // Toggle selection
     }));
+  };
+
+  const handleEvents = () => {
+    console.log("events:", events);
+    onClose();
+    setShowFilterResults(true);
+    setFilteredEvents(events);
   };
 
   return (
@@ -205,6 +226,7 @@ const Filter = ({ isOpen, onClose }) => {
 
         {/* Show Events Button */}
         <button
+          onClick={handleEvents}
           className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold mt-6"
         >
           Show {events.length} Events

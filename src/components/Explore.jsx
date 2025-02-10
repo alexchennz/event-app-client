@@ -5,7 +5,7 @@ import Filter from './Filter';
 const Explore = ({ onEventSelect }) => {
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [showFilter, setShowFilter] = useState(false);
+  // const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:5000/api/events')
@@ -49,11 +49,11 @@ const Explore = ({ onEventSelect }) => {
           </div>
         </div>
       </div>
-      {showFilter && (
+      {/* {showFilter && (
         <Filter
           onClose={() => setShowFilter(false)}
         />
-      )}
+      )} */}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchResultEvent from './SearchResultEvent';
 
-const FilterResult = ({ events, onEventSelect, onBack }) => {
+const FilterResult = ({ events, onBack }) => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-md mx-auto px-4 pb-20">
@@ -22,7 +22,6 @@ const FilterResult = ({ events, onEventSelect, onBack }) => {
               <SearchResultEvent 
                 key={event._id} 
                 event={event}
-                onClick={() => onEventSelect(event)}
               />
             ))}
           </div>
