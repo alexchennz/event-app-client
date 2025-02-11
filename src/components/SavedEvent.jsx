@@ -33,8 +33,10 @@ const SavedEvent = ({ onEventSelect }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white p-4">
-        <h1 className="text-2xl font-bold mb-4">Loading...</h1>
+      <div className="min-h-screen bg-gray-900 text-white">
+        <div className="max-w-md mx-auto px-4">
+          <h1 className="text-2xl font-bold mb-4">Loading...</h1>
+        </div>
       </div>
     );
   }
