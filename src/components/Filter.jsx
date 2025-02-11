@@ -82,7 +82,6 @@ const Filter = ({ isOpen, onClose }) => {
   };
 
   const handleEvents = () => {
-    console.log("events:", events);
     onClose();
     setShowFilterResults(true);
     setFilteredEvents(events);

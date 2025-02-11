@@ -2,6 +2,8 @@ import React from 'react';
 import SearchResultEvent from './SearchResultEvent';
 
 const FilterResult = ({ events, onBack }) => {
+
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-md mx-auto px-4 pb-20">
